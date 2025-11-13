@@ -1,11 +1,21 @@
+"use client";
+
+import MobileMenu from "@/components/MoblieMenu";
+import SkillSlider from "@/components/SkillSlider";
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Menu } from "lucide-react";
+import { Menu, Mouse } from "lucide-react";
 import Image from "next/image";
+import { useAtom } from "jotai";
+import { mobileMenuAtom } from "@/components/status";
 import React from "react";
+import AnimatedDiv from "@/components/AnimatedDiv";
+
 export default function Home() {
+  const [mobileMenu, setMobileMenu] = useAtom(mobileMenuAtom);
   return (
     <main>
-      <nav className="backdrop-blur-3xl flex flex-row justify-between items-center    lg:px-50 xl:px-70 lg:pt-8 sm:px-7 px-7 py-4 ">
+      <MobileMenu />
+      <nav className="backdrop-blur-3xl flex flex-row justify-between items-center   sticky top-0 z-[100] lg:px-50 xl:px-70 lg:pt-2 sm:px-7 px-7 py-2">
         <div>
           <a href="#" className="selection:bg-transparent">
             <Image
@@ -30,12 +40,7 @@ export default function Home() {
           >
             About
           </a>
-          <a
-            href="#education"
-            className="hover:text-primary transition-all duration-100 cursor-pointer "
-          >
-            Education
-          </a>
+
           <a
             href="#work"
             className="hover:text-primary transition-all duration-100 cursor-pointer "
@@ -51,7 +56,14 @@ export default function Home() {
         </div>
         <div className="sm:flex w-10 h-10 lg:hidden">
           {" "}
-          <Menu className="w-full h-full" />
+          {mobileMenu ? (
+            ""
+          ) : (
+            <Menu
+              className="w-full h-full"
+              onClick={() => setMobileMenu(true)}
+            />
+          )}
         </div>
       </nav>
       {/**_______________________________________HeroSection */}
@@ -102,31 +114,55 @@ export default function Home() {
 
         {/* 🔹 Left content */}
         <div className="flex text-center lg:text-left flex-col gap-y-3 justify-center p-4">
-          <h1 className="font-bold text-center lg:text-left text-3xl sm:text-[3rem] lg:text-7xl">
+          <AnimatedDiv
+            duration={0.5}
+            direction="left"
+            className="font-bold text-center lg:text-left text-3xl sm:text-[3rem] lg:text-7xl"
+          >
             "HI, I'm{" "}
             <span className="text-primary font-extrabold sm:text-[4rem] lg:text-8xl text-4xl">
               Jox
             </span>
             "
-          </h1>
-          <p className="text-[1rem] lg:pl-[4rem] lg:w-2/3">
+          </AnimatedDiv>
+          <AnimatedDiv
+            direction="right"
+            duration={1.5}
+            className="text-[1rem] lg:pl-[4rem] lg:w-2/3"
+          >
             “I’m a frontend developer with medium-level experience in web and
             desktop development. I enjoy building clean, responsive user
             interfaces and bringing ideas to life with modern frameworks. Always
-            learning and exploring new technologies to improve my craft.”
-          </p>
+            learning and exploring new technologies to improve my craft.”{" "}
+          </AnimatedDiv>
           <div className="flex gap-x-5 flex-row w-full lg:justify-start justify-center">
-            <Button className="cursor-pointer">Contact</Button>
-            <Button className="cursor-pointer">
-              Download CV <ArrowDown />
-            </Button>
+            <AnimatedDiv duration={1.5}>
+              <Button className="cursor-pointer">
+                <a href="#contact">Contact</a>
+              </Button>
+            </AnimatedDiv>
+            <AnimatedDiv duration={2} delay={0.5}>
+              <Button asChild>
+                <a href="/suhaibcv.pdf" download="Suhaib_CV.pdf">
+                  Download CV ↓
+                </a>
+              </Button>
+            </AnimatedDiv>
+            <AnimatedDiv duration={2.5} delay={1}>
+              <span className="lg:flex md:hidden hidden sm:hidden gap-x-2 items-center">
+                Scroll Down <Mouse className="w-8 h-8" />
+              </span>
+            </AnimatedDiv>
           </div>
         </div>
 
         {/* 🔹 Right image */}
-        <div className="relative rounded-full flex items-center justify-center">
+        <AnimatedDiv
+          direction="down"
+          className="relative rounded-full flex items-center justify-center"
+        >
           <div
-            className="relative overflow-hidden rounded-full
+            className="relative overflow-hidden  rounded-2xl 
           w-[160px] h-[160px]
           sm:w-70 sm:h-70
           lg:w-80 lg:h-80
@@ -137,15 +173,27 @@ export default function Home() {
               src="/myPhoto.png"
               alt="pro"
               fill
-              className="object-cover border-b-4 border-primary rounded-full"
+              className="object-cover clip-octagon border-4  border-foreground "
             />
           </div>
-        </div>
+        </AnimatedDiv>
       </div>
       <div className="relative w-full flex  my-5 justify-center">
         <div className="w-1/2 border-b-2 border-forgorund"></div>
       </div>
-      {/**____________________________________________________________________________________________________ */}
+      {/**____________________________________________________________________________________________________ for About Section */}
+      <div id="about" className=" w-full flex flex-col  my-5 justify-center">
+        <h1 className="font-extrabold text-center my-2 text-5xl">About</h1>
+        <div className="flex flex-col md:flex-col lg:flex-row lg:justify-between gap-y-5">
+          <AnimatedDiv className="px-[1rem] flex flex-col sm:w-full lg:w-1/2 items-center">
+            <h2>Skills</h2>
+            <SkillSlider />
+          </AnimatedDiv>
+          <AnimatedDiv className="px-[1rem] flex flex-col sm:w-full lg:w-1/2 items-center">
+            <h2>Education</h2>
+          </AnimatedDiv>
+        </div>
+      </div>
     </main>
   );
 }

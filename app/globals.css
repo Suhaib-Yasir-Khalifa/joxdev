@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-
+html {
+  scroll-behavior: smooth;
+}
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -112,6 +114,21 @@
   --sidebar-ring: oklch(0.551 0.027 264.364);
 }
 
+@layer utilities {
+  .clip-octagon {
+    clip-path: polygon(
+      30% 0%,
+      70% 0%,
+      100% 30%,
+      100% 70%,
+      70% 100%,
+      30% 100%,
+      0% 70%,
+      0% 30%
+    );
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -145,4 +162,23 @@
 
 .move-y {
   animation: moveVertical 10s linear infinite alternate;
+}
+
+/* ==== Scrollbar Style ==== */
+::-webkit-scrollbar {
+  width: 6px; /* thin width */
+  height: 6px; /* thin for horizontal scrolls */
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--primary)); /* background of track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary); /* uses your Tailwind primary color */
+  border-radius: 9999px; /* rounded ends */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary); /* slightly lighter on hover */
 }
