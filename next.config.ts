@@ -19,9 +19,14 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+
+  // Keep your custom webpack modifications
   webpack(config) {
     return config;
   },
+
+  // Add this to satisfy Turbopack and avoid build errors
+  turbopack: {},
 };
 
 export default nextConfig;

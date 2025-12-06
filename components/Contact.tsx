@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import AnimatedDiv from "./AnimatedDiv";
-import { SiGmail, SiGithub, SiFiverr, SiWhatsapp } from "react-icons/si";
+import { SiGithub, SiFiverr, SiWhatsapp } from "react-icons/si";
 import { FaEnvelope } from "react-icons/fa";
 
 const contactItems = [

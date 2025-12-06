@@ -1,7 +1,5 @@
 "use client";
 
-import dynamic from "next/dynamic";
-
 import HomePage from "@/components/HomePage";
 import ProjectsSection from "@/components/ProjectsSection";
 import Contact from "@/components/Contact";
@@ -19,7 +17,7 @@ export default function Home() {
 
       {/* Contact Section */}
       <Contact />
-      
+
       {/* Footer */}
       <Footer />
     </main>
