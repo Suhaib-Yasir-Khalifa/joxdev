@@ -235,7 +235,7 @@ const HeroSection = () => {
             "
           </div>
 
-          <div className="text-lg lg:text-xl sm:text-center lg:text-left text-gray-300 lg:pl-4 lg:pr-20">
+          <div className="text-lg lg:text-xl text-center lg:text-left text-gray-300 px-4 lg:pl-4 lg:pr-20">
             "I'm a frontend developer with medium-level experience in web and
             desktop development. I enjoy building clean, responsive user
             interfaces and bringing ideas to life with modern frameworks. Always
