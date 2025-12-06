@@ -1,4 +1,4 @@
-import { Home, ToolCase, WorkflowIcon, Phone } from "lucide-react";
+import { Home, ToolCase, HandHelping, Phone } from "lucide-react";
 import { useAtom } from "jotai";
 import { mobileMenuAtom } from "./status";
 import { cn } from "../lib/utils";
@@ -38,11 +38,11 @@ export default function MobileMenu() {
           onClick={() => {
             setMobileMenu(false);
           }}
-          href="#work"
+          href="#projects"
           className="p-2 rounded-xl bg-primary flex flex-col justify-center items-center"
         >
-          <WorkflowIcon />
-          Work
+          <HandHelping />
+          Projects
         </a>
         <a
           onClick={() => {

@@ -2,6 +2,36 @@
 @import "tw-animate-css";
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 4rem;
+}
+
+/* Section Transitions */
+section {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Gradient Masks for Section Edges */
+.section-top-fade {
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+.section-bottom-fade {
+  mask-image: linear-gradient(to top, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, black 80%, transparent 100%);
+}
+
+/* Smooth Scrolling */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  [data-scroll] {
+    scroll-margin-top: 5rem;
+  }
 }
 @custom-variant dark (&:is(.dark *));
 
@@ -115,6 +145,19 @@ html {
 }
 
 @layer utilities {
+  .hexagon {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .hexagon:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  }
+  
   .clip-octagon {
     clip-path: polygon(
       30% 0%,
@@ -136,6 +179,34 @@ html {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Glass Morphism Animations */
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
 }
 
 @keyframes moveHorizontal {

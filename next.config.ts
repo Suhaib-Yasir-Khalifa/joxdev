@@ -19,14 +19,7 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  webpack: (config) => {
-    config.module.rules.push({
-      test: /\.(pdf)$/i,
-      type: "asset/resource",
-      generator: {
-        filename: "static/[hash][ext][query]",
-      },
-    });
+  webpack(config) {
     return config;
   },
 };

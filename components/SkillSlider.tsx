@@ -9,6 +9,10 @@ import {
   SiCss3,
   SiHtml5,
   SiNodedotjs,
+  SiElectron,
+  SiTypescript,
+  SiOpenai,
+  SiFirebase,
 } from "react-icons/si";
 
 type Skill = {
@@ -29,13 +33,22 @@ const skills: Skill[] = [
     name: "React",
     icon: <SiReact className="w-20 h-20 text-blue-400" />,
     description: "React hooks, components, router, state management.",
-    progress: 75,
+    progress: 90,
+  },
+  {
+    name: "Firebase",
+    icon: (
+      <SiFirebase className="w-20 h-20 rounded-full text-black bg-gradient-to-r from-orange-500 to-yellow-500" />
+    ),
+    description:
+      "Backend and dealing with the database without needing to backend developer",
+    progress: 90,
   },
   {
     name: "TailwindCSS",
     icon: <SiTailwindcss className="w-20 h-20 text-blue-400" />,
     description: "Responsive UI, utility classes, animations.",
-    progress: 70,
+    progress: 85,
   },
   {
     name: "Next.js",
@@ -54,11 +67,36 @@ const skills: Skill[] = [
     description: "HTML & CSS basic for web and desktop developement",
     progress: 93,
   },
+
+  {
+    name: "Typescript",
+    icon: (
+      <div className="flex">
+        <SiTypescript className="text-blue-600 w-20 h-20" />
+      </div>
+    ),
+    description: "Typescript for web and desktop developement",
+    progress: 90,
+  },
   {
     name: "Node.js",
     icon: <SiNodedotjs className="w-20 h-20 text-green-400" />,
     description: "NodeJs, Backend and serversite javascript.",
     progress: 70,
+  },
+  {
+    name: "Electron",
+    icon: <SiElectron className="w-20 h-20 text-blue-400" />,
+    description:
+      "Desktop application development, Security, Preload Controlling",
+    progress: 90,
+  },
+  {
+    name: "Ai Powered Apps",
+    icon: <SiOpenai className="w-20 h-20 text-gray-400" />,
+    description:
+      "Applications powered by Ai, Chatbots, Image Generators,Assest Generators",
+    progress: 77,
   },
 ];
 export default function SkillSlider(): JSX.Element {
@@ -107,22 +145,22 @@ export default function SkillSlider(): JSX.Element {
       <div className="flex mt-6 space-x-6">
         <button
           onClick={handlePrev}
-          className="px-4 py-2 rounded-lg cursor-pointer shadow hover:bg-primary transition"
+          className="px-4 py-2 rounded-lg cursor-pointer  hover:bg-primary transition shadow-sm shadow-black"
         >
           <ArrowLeft />
         </button>
         <button
           onClick={handleNext}
-          className="px-4 py-2 rounded-lg cursor-pointer shadow hover:bg-primary transition"
+          className="px-4 py-2 rounded-lg cursor-pointer  hover:bg-primary transition shadow-sm shadow-black"
         >
           <ArrowRight />
         </button>
       </div>
 
       {/* Selected Skill Info */}
-      <div className="mt-6 w-full flex flex-col justify-between max-w-md text-center transition-all h-[9rem] duration-300">
-        <h2 className="text-2xl font-bold">{skills[selected].name}</h2>
-        <p className="mt-2 text-foreground">{skills[selected].description}</p>
+      <div className="mt-6 w-full flex flex-col justify-between max-w-md text-center transition-all h-[12rem] duration-300">
+        <h2 className="text-2xl  font-bold">{skills[selected].name}</h2>
+        <p className=" text-foreground">{skills[selected].description}</p>
 
         {/* Progress Bar */}
         <div className="mt-4 w-full h-4 bg-foreground rounded-full overflow-hidden">
