@@ -34,7 +34,7 @@ const contactItems = [
     icon: <SiWhatsapp className="w-6 h-6" />,
     title: "WhatsApp",
     description: "Chat with me directly",
-    href: "https://wa.me/01558157912",
+    href: "https://wa.me/+201558157912",
     color: "from-green-500 to-emerald-600",
     hoverColor: "hover:from-green-600 hover:to-emerald-700",
   },

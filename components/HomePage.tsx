@@ -235,7 +235,7 @@ const HeroSection = () => {
             "
           </div>
 
-          <div className="text-lg lg:text-xl text-gray-300 lg:pl-4 lg:pr-20">
+          <div className="text-lg lg:text-xl sm:text-center lg:text-left text-gray-300 lg:pl-4 lg:pr-20">
             "I'm a frontend developer with medium-level experience in web and
             desktop development. I enjoy building clean, responsive user
             interfaces and bringing ideas to life with modern frameworks. Always
@@ -311,7 +311,7 @@ export default function HomePage() {
                 className="space-y-6"
               >
                 <div className="space-y-4">
-                  <h3 className="text-2xl font-semibold text-foreground">
+                  <h3 className="text-2xl text-center font-semibold text-foreground">
                     My Skills
                   </h3>
                   <SkillSlider />
